@@ -1,28 +1,29 @@
-import mysql.connector
-python_testdb = mysql.connector.connect(
-    host= "localhost",
-    user="root",
-    password="D10S0404",
-    port="3306",
-    database="python_test"
-)
-db_cursor = python_testdb.cursor()
+from Connector import Conector
+mydb_players = Conector("localhost","root","*******","3306","python_test")
+mydb_players.connect_mysql()
+print(mydb_players.executesql("select player_name from players where shirt_number in ('10','5','7')"))
+sakila_db = Conector("localhost","root","D10S0404","3306","sakila")
+sakila_db.connect_mysql()
+print(sakila_db.executesql("select count(actor_id) from actor"))
+print(sakila_db.executesql("select count(film_id) from film"))
 
-db_cursor.execute("SELECT * FROM players")
 
-players = db_cursor.fetchall()
 
-for player in players:
-  try:
-    print("Player Name: "+player[1])
-    print("Player Shirt: " + player[2])
-  except TypeError:
-    continue
 
-db_cursor.execute("SELECT player_name FROM players WHERE shirt_number in ('10','5','16','19','7')")
 
-players = db_cursor.fetchall()
-psh = []
-for player in players:
-    psh.append(player)
-print(psh)
+
+
+
+
+
+
+# for player in players:
+#     psh.append(player)
+# print(psh)
+
+# for player in players:
+#     try:
+#         print("Player Name: " + player[1])
+#         print("Player Shirt: " + player[2])
+#     except TypeError:
+#         continue
