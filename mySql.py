@@ -6,24 +6,3 @@ sakila_db = Conector("localhost","root","D10S0404","3306","sakila")
 sakila_db.connect_mysql()
 print(sakila_db.executesql("select count(actor_id) from actor"))
 print(sakila_db.executesql("select count(film_id) from film"))
-
-
-
-
-
-
-
-
-
-
-
-# for player in players:
-#     psh.append(player)
-# print(psh)
-
-# for player in players:
-#     try:
-#         print("Player Name: " + player[1])
-#         print("Player Shirt: " + player[2])
-#     except TypeError:
-#         continue
