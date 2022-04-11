@@ -1,33 +1,8 @@
 from ConnectorMongo import Connectormongo
 
-db = Connectormongo("mongodb://localhost:27017/","Fasil","students")
+db = Connectormongo("mongodb://localhost:27017/", "Fasil", "students")
 db.executemongo()
-db.executemongo("name","Xavi Hernandes")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+db.executemongo("name", "Xavi Hernandes")
 
 # import pymongo
 # # db = Connectormongo("mongodb://localhost:27017/","Fasil","players")

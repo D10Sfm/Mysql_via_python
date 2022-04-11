@@ -1,51 +1,34 @@
 import pymongo
+
+
 class Connectormongo:
-    def __init__(self,client,db,collection):
+    def __init__(self, client, db, collection):
         self.client = client
         self.db = db
         self.collection = collection
+
     def connectmongo(self):
         connect = pymongo.MongoClient(str(self.client))
         db = connect[str(self.db)]
         collection = db[str(self.collection)]
         return collection
 
-    def executemongo(self,key="",value=""):
-            client = self.connectmongo()
-            if len(key) > 1 and len(value) > 1:
-                collection = client.find({key:value})
-            else:
-                collection = client.find({})
-            keys = []
-            values = []
-            for i in  collection:
-                keys.append(i.keys())
-                values.append(i.values())
-            try:
-                for (i,j) in zip(keys,values):
-                    print(' '.join(map(str,i)),' '.join(map(str,j)))
-            except IndexError:
-                pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def executemongo(self, key="", value=""):
+        client = self.connectmongo()
+        if len(key) > 1 and len(value) > 1:
+            collection = client.find({key: value})
+        else:
+            collection = client.find({})
+        keys = []
+        values = []
+        for i in collection:
+            keys.append(i.keys())
+            values.append(i.values())
+        try:
+            for (i, j) in zip(keys, values):
+                print(' '.join(map(str, i)), ' '.join(map(str, j)))
+        except IndexError:
+            pass
 
 # myclient = pymongo.MongoClient(
 #     "mongodb://localhost:27017/"

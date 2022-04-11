@@ -1,6 +1,7 @@
 from Connector import Conector
-mydb_players = Conector("localhost","root","******","3306","players")
-mydb_northwind = Conector("localhost","root","******","3306","northwind")
+
+mydb_players = Conector("localhost", "root", "******", "3306", "players")
+mydb_northwind = Conector("localhost", "root", "******", "3306", "northwind")
 
 # select
 # print(mydb_players.executesql("select player_name from players where shirt_number in ('10','5','7')"))
@@ -15,9 +16,6 @@ mydb_northwind = Conector("localhost","root","******","3306","northwind")
 # print(mydb_northwind.executesql(" select p.product_name,p.quantity_per_unit,o.unit_price,o.discount,o.quantity,op.order_date from order_details as o inner join products as p on o.product_id = p.id inner join orders as op on o.order_id = op.id order by op.order_date desc"))
 # print(mydb_northwind.executesql(" select p.product_name,p.quantity_per_unit,o.unit_price,o.discount,o.quantity,op.order_date from order_details as o inner join products as p on o.product_id = p.id inner join orders as op on o.order_id = op.id order by op.order_date desc"))
 # print(mydb_northwind.executesql("select e.id,concat(e.first_name,' ',e.last_name) as fullname ,e.job_title,p.privilege_name,e.city from employee_privileges as ev inner join employees as e on ev.employee_id = e.id inner join privileges as p  group by e.city order by employee_id"))
-
-
-
 
 
 # update
@@ -38,3 +36,6 @@ mydb_northwind = Conector("localhost","root","******","3306","northwind")
 # print(mydb_players.executesql("select shirt_number,player_name from players where id = 6 "))
 # print(mydb_players.executesql("update players set shirt_number = '15' where id = 6",'update'))
 # print(mydb_players.executesql("select shirt_number,player_name from players where id = 6 "))
+
+
+
