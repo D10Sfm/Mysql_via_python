@@ -1,6 +1,6 @@
 from Connector import Conector
-mydb_players = Conector("localhost","root","D10S0404","3306","players")
-mydb_northwind = Conector("localhost","root","D10S0404","3306","northwind")
+mydb_players = Conector("localhost","root","******","3306","players")
+mydb_northwind = Conector("localhost","root","******","3306","northwind")
 
 # select
 # print(mydb_players.executesql("select player_name from players where shirt_number in ('10','5','7')"))
